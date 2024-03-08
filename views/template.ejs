@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        /* Set page size to A4 (210mm x 297mm) */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        /* Define styles for the main content */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+     
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* color: #fff;  */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* CSS styles for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+         /* Page break before and after specific elements */
+         .page-break-before {
+            page-break-before: always;
+        }
+
+        .page-break-after {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to <%= title %>!</h1>
+    <p>This is a dynamic HTML template using EJS.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user) { %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.age %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+     <!-- Content that should appear on the first page -->
+     <div class="page-break-after">
+        <!-- Content for the first page -->
+        <h1>page 1</h1>
+    </div>
+
+    <!-- Content that should appear on the second page -->
+    <div class="page-break-before">
+        <!-- Content for the second page -->
+        <h1>page 2</h1>
+    </div>
+
+    <!-- Content that should appear on the third page -->
+    <div class="page-break-before">
+        <!-- Content for the third page -->
+        <h1>page 3</h1>
+    </div>
+
+    <!-- Content that should appear on the fourth page -->
+    <div class="page-break-after">
+        <!-- Content for the fourth page -->
+        <h1>page 4</h1>
+    </div>
+
+    <!-- Content that should appear on the fifth page -->
+    <div class="page-break-before">
+        <!-- Content for the fifth page -->
+        <h1>page 5</h1>
+    </div>
+
+    <!-- Continue adding content with appropriate page breaks -->
+</body>
+</html>
